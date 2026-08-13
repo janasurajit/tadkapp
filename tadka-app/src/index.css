@@ -1,0 +1,164 @@
+:root {
+  --color-cream: #fbf3e7;
+  --color-cream-2: #f3e6d1;
+  --color-charcoal: #241f1a;
+  --color-ink: #2b2620;
+  --color-ink-soft: #6b6155;
+  --color-chili: #c1440e;
+  --color-chili-dark: #9c3609;
+  --color-turmeric: #e3a32b;
+  --color-leaf: #4a5d23;
+  --color-red-flag: #b3261e;
+  --color-line: rgba(43, 38, 32, 0.12);
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-soft: 0 10px 30px rgba(36, 31, 26, 0.08);
+  --shadow-card: 0 6px 20px rgba(36, 31, 26, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-charcoal);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-turmeric);
+  color: var(--color-charcoal);
+}
+
+/* Custom scrollbar for category strip */
+.scroll-x::-webkit-scrollbar {
+  height: 0px;
+}
+
+/* Utility: mono price tag */
+.price {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Veg / non-veg indicator, styled after the classic Indian menu square */
+.diet-flag {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.diet-flag.veg { color: var(--color-leaf); }
+.diet-flag.nonveg { color: var(--color-red-flag); }
+.diet-flag::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visibility */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-chili);
+  outline-offset: 2px;
+}
+
+/* Two-column layout for the order page on wider screens */
+@media (min-width: 780px) {
+  .order-layout {
+    grid-template-columns: 1.1fr 0.9fr !important;
+    align-items: start;
+  }
+}
+
+/* Ticket perforation effect used on cart bar & order summary */
+.ticket-edge {
+  position: relative;
+}
+.ticket-edge::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background-image: radial-gradient(circle 9px, var(--color-cream) 9px, transparent 9.5px);
+  background-size: 28px 18px;
+  background-repeat: repeat-x;
+  background-position: left top;
+}
+
+@media (max-width: 780px) {
+  
+.city-pincode{
+  display: flex;
+  flex-direction: column;
+}
+
+}
