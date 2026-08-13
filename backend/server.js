@@ -2,7 +2,7 @@ require('dotenv').config()
 const app = require("./src/app.js")
 const mysqlpool = require("./src/db/db.js")
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8080
 
 
 mysqlpool.query(`SELECT 1`).then(()=>{
