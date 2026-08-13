@@ -1,14 +1,9 @@
 const mysql = require('mysql2/promise');
 
-console.log(process.env.MYSQLHOST)
 
-const mysqlpool = mysql.createPool({
-host: process.env.MYSQLHOST,
-  port: process.env.MYSQLPORT || 3306,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE,
-})
+const  urlDB = `mysql://${process.env.MYSQLUSER}:${process.env.MYSQLPASSWORD}@${process.env.MYSQLHOST}:${process.env.MYSQLPORT}/${process.env.MYSQLDATABASE}`
+console.log(urlDB)
+const mysqlpool = mysql.createPool(urlDB)
 
 
 module.exports = mysqlpool
